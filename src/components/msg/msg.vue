@@ -20,6 +20,7 @@
     } from 'vuex'
     import session from './session.vue'
     import box from './box.vue'
+
     export default {
         name: 'msg',
         components: {
@@ -28,7 +29,7 @@
         },
         data() {
             return {
-                
+
             }
         },
         computed: mapState({

@@ -23,7 +23,8 @@
         <!--BEGIN nav view-->
         <div class="nav_view scroll">
             <div class="chat_list">
-
+                <item v-for="user in list" :user="user" :key="user.tId"></item>
+                </div>
             </div>
         </div>
         <!--END nav view-->
@@ -36,11 +37,36 @@
     import {
         mapState
     } from 'vuex'
+    import item from './item.vue'
     export default {
         name: 'sessionMsg',
+        components: {
+            'item': item
+        },
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+                list: [{
+                    name: '测试呵呵',
+                    photo: './assets/icon.jpg',
+                    uerid: '123',
+                    type: 'P',
+                    tId: 'p-123',
+                    isOn: true
+                }, {
+                    name: '测试2',
+                    photo: './assets/icon.jpg',
+                    uerid: '32',
+                    type: 'P',
+                    tId: 'p-32',
+                    isOn: false
+                }, {
+                    name: 'sger',
+                    photo: './assets/icon.jpg',
+                    uerid: '33',
+                    type: 'P',
+                    tId: 'p-33',
+                    isOn: false
+                }, ]
             }
         }
     }

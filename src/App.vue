@@ -66,14 +66,10 @@
     // import chatBox from './components/chatBox.vue'
     export default {
         name: 'app',
-        components: {
-            'siderMenu': siderMenu,
-            // 'msg': msg,
-            // 'chatBox': chatBox
-        },
+        components: {},
         data() {
             return {
-                totalTime: 1
+
             }
         },
         computed: mapState({
