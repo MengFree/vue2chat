@@ -2,32 +2,33 @@
   
 <div style="height:100%;">
 <!--中间列表-->
-<sessionMsg></sessionMsg>
+    <session></session>
 <!--END panel-->
 <!--BEGIN chat-->
-<div id='chat' style="height:100%;">
+    <div id='chat' style="height:100%;">
   
-<!--BEGIN chatBox-->
-<chatBox></chatBox>
+<!--BEGIN box-->
+    <box></box>
 <!--END chat-->
-</div>
+    </div>
+    </div>
 </template>
 
 <script>
     import {
         mapState
     } from 'vuex'
-    import sessionMsg from './sessionMsg.vue'
-    import chatBox from './chatBox.vue'
+    import session from './session.vue'
+    import box from './box.vue'
     export default {
         name: 'msg',
         components: {
-            'sessionMsg': sessionMsg,
-            'chatBox': chatBox
+            'session': session,
+            'box': box
         },
         data() {
             return {
-                totalTime: 1
+                
             }
         },
         computed: mapState({
@@ -43,14 +44,3 @@
         }
     }
 </script>
-
-<style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
-</style>

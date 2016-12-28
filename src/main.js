@@ -3,7 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import store from "./store/store.js";
+
 import msg from './components/msg/msg.vue'
+import contact from './components/contact/contact.vue'
+import order from './components/order/order.vue'
+import system from './components/system/system.vue'
+
 import VueRouter from 'vue-router'
 
 import './assets/css/webIM.css'
@@ -16,6 +21,9 @@ Vue.use(VueRouter)
 
 const routes = [
     { path: '/msg', component: msg },
+    { path: '/contact', component: contact },
+    { path: '/order', component: order },
+    { path: '/system', component: system },
     { path: '/', redirect: '/msg' }
 ]
 const router = new VueRouter({

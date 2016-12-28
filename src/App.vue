@@ -26,30 +26,18 @@
                       通讯录 <span id="cont_num"></span>
                   </span>
             </router-link>
+            <router-link tag="li" to='/system' class="menu_list">
+              <div class="avatar icon_system"></div>
+                <span class="info">
+                    系统通知<span id="sys_num"></span>
+                </span>
+            </router-link>
             <router-link tag="li" to='/order' class="menu_list">
               <div class="avatar icon_order"></div>
               <span class="info">
                   订单通知<span id="order_num"></span>
               </span>
             </router-link>
-            <li class="menu_list" data-href="#contact" id="menu_contact">
-                <div class="avatar icon_contact"></div>
-                        <span class="info">
-                            通讯录 <span id="cont_num"></span>
-                        </span>
-            </li>
-            <li class="menu_list"  data-href="#system" id="menu_system">
-                <div class="avatar icon_system"></div>
-                        <span class="info">
-                            系统通知<span id="sys_num"></span>
-                        </span>
-            </li>
-            <li class="menu_list" data-href="#order" id="menu_order">
-                <div class="avatar icon_order"></div>
-                        <span class="info">
-                            订单通知<span id="order_num"></span>
-                        </span>
-            </li>
             <li class="menu_list" data-href="setting" style="position: relative;">
                 <div class="avatar icon_setting"></div>
                         <span class="info">
