@@ -1,0 +1,243 @@
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6
+}
+input,textarea,button,a {
+    outline: 0
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd,fieldset,textarea {
+    margin: 0
+}
+
+fieldset,legend,textarea,input {
+    padding: 0
+}
+a img,fieldset {
+    border: 0
+}
+
+article,aside,details,figcaption,figure,footer,header,main,nav,section,summary {
+    display: block
+}
+
+
+button,input,select,textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0
+}
+
+button,select {
+    text-transform: none
+}
+
+button,html input[type=button],input[type=reset],input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button
+}
+
+button[disabled],html input[disabled] {
+    cursor: default
+}
+
+input[type=checkbox],input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=search] {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box
+}
+
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill {
+    box-shadow: inset 0 0 0 1000px #fff;
+    -moz-box-shadow: inset 0 0 0 1000px #fff;
+    -webkit-box-shadow: inset 0 0 0 1000px #fff
+}
+
+html {
+    height: 100%
+}
+
+body {
+    font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei"," 微软雅黑",Arial,sans-serif;
+    height: 100%;
+    min-height: 530px;
+    background: url(../img/woxin_login_bg.png) no-repeat center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+a.btn {
+    text-decoration: none
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid #c1c1c1;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 3px 20px;
+    font-size: 14px
+}
+.login_box {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    width: 400px;
+    margin-top:-364px;
+    margin-left: -200px;
+}
+.login_hd{
+    padding-bottom: 26px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.login_hd img{
+    width: 71px;
+    height:54px;
+    vertical-align: top;
+}
+.login_hd .logo{
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: top;
+}
+.login_hd .logo p{
+    letter-spacing: 4px;
+    font-size: 36px;
+    line-height: 36px;
+
+}
+.login_hd .logo span{
+    font-size: 14px;
+}
+.login_bd{
+    text-align: center;
+    background-color: rgba(34, 34, 38,0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F222226,endColorstr=#7F222226);
+}
+.login_tab{
+    overflow: hidden;
+}
+.login_tab a{
+    float: left;
+    display: inline;
+    text-decoration: none;
+    color: #ffffff;
+    height: 57px;
+    width: 200px;
+    line-height: 57px;
+    font-size: 18px;
+}
+.login_tab a.active{
+    color: #09bb07;
+    border-bottom: 3px solid #09bb07;
+}
+.login{
+    position: relative;
+    padding-top: 15px;
+}
+.login input{
+    display: block;
+    width: 300px;
+    height: 44px;
+    margin: 22px auto;
+    padding: 0 10px;
+    line-height: 44px;
+    border: 0;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    outline: 0;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333333;
+
+}
+.login .btn{
+    width: 320px;
+    height: 44px;
+    line-height:38px ;
+    margin-top: 24px;
+    margin-bottom: 40px;
+    background-color: #09bb07;
+    border: 0;
+    color: #ffffff;
+    font-size: 20px;
+}
+.login .btn:hover,
+.login .btn:active{
+    background-color: #08a806;
+}
+.login_ft{
+    padding: 30px 15px;
+    background-color: rgba(34, 34, 34,0.8);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#C8222222,endColorstr=#C8222222);
+    color: #ffffff;
+    font-size: 14px;
+}
+.login_ft p{
+    position: relative;
+    padding-left: 20px;
+}
+.login_ft i{
+    position: absolute;
+    top:9px;
+    left: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: inline-block;
+    background-color:#09bb07;
+}
+
+.tips{
+    display: none;
+    position: absolute;
+    top: 156px;
+    left: 43px;
+    color: #ffffff;
+    font-size: 12px;
+    font-style: normal;
+
+}
+.hasError .tips{
+    display: block;
+}
+
+.login_ing{
+    background: url('../img/loadingFile.gif') no-repeat 85px 11px;
+}
+.login .btn:disabled{
+    background-color: #ccc;
+}
+.login_box a:focus,.login_box .btn:focus{
+    outline: 0;
+}
+
+@media (max-height:759px) {
+    .login_box {
+        margin-top: -264px;
+    }
+}
