@@ -23,7 +23,7 @@
         <!--BEGIN nav view-->
         <div class="nav_view scroll">
             <div class="chat_list">
-                <item v-for="user in list" :user="user" :key="user.tId"></item>
+                <item v-for="user in chatList" :user="user" :key="user.tId" :msg="user.msg"></item>
                 </div>
             </div>
         </div>
@@ -45,28 +45,15 @@
         },
         data() {
             return {
-                list: [{
-                    name: '测试呵呵',
-                    photo: './assets/icon.jpg',
-                    uerid: '123',
-                    type: 'P',
-                    tId: 'p-123',
-                    isOn: true
-                }, {
-                    name: '测试2',
-                    photo: './assets/icon.jpg',
-                    uerid: '32',
-                    type: 'P',
-                    tId: 'p-32',
-                    isOn: false
-                }, {
-                    name: 'sger',
-                    photo: './assets/icon.jpg',
-                    uerid: '33',
-                    type: 'P',
-                    tId: 'p-33',
-                    isOn: false
-                }, ]
+                chatList: []
+            }
+        },
+        computed: mapState({
+            chatList: state => state.chatSession
+        }),
+        methods: {
+            deleteTime(timeEntry) {
+                this.totalTime -= parseFloat(timeEntry.totalTime)
             }
         }
     }

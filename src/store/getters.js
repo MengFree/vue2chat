@@ -1,4 +1,4 @@
-const mutations = {
+const getters = {
     ADD(state, newNote) {
         state.timeEntries.push(newNote)
         state.totalTime += newNote.totalTime
@@ -14,11 +14,10 @@ const mutations = {
         for (var i = 0; i < state.chatSession.length; i++) {
             if (i == index) {
                 state.chatSession[i].isOn = true;
-                state.isChat = state.chatSession[i];
             } else {
                 state.chatSession[i].isOn = false;
             }
         }
     },
 }
-export default mutations
+export default getters
