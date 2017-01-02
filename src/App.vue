@@ -6,11 +6,11 @@
         <div class="header">
             <div class="img_box">
                 <div class="avatar" id="myself">
-                    <img src="./assets/img/icon.jpg" class="img">
+                    <img :src="myself.photo" class="img">
                 </div>
             </div>
             <h3 class="user_name">
-                我了个大草sssss
+                {{myself.name}}
             </h3>
         </div>
         <ul class="menu" id="menu">
@@ -73,6 +73,7 @@
             }
         },
         computed: mapState({
+             myself: state => state.MY,
             totalTime: state => state.totalTime
         }),
         methods: {

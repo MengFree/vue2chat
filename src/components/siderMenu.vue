@@ -3,11 +3,11 @@
     <div class="header">
         <div class="img_box">
             <div class="avatar" id="myself">
-                <img src="../assets/img/icon.jpg" class="img">
+                <img src="myself.photo" class="img">
             </div>
         </div>
         <h3 class="user_name">
-            我了个大草sssss
+           啊啊啊啊啊 
         </h3>
     </div>
     <ul class="menu" id="menu">
@@ -54,10 +54,20 @@
 </template>
 
 <script>
+    import {
+        mapState
+    } from 'vuex'
     export default {
         data() {
             return {
-                msg: 'Welcome to Your Vue.js App'
+            }
+        },
+        computed: mapState({
+           myself: state => state.MY,
+        }),
+        methods: {
+            deleteTime(timeEntry) {
+                this.totalTime -= parseFloat(timeEntry.totalTime)
             }
         }
     }

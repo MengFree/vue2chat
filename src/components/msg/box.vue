@@ -31,18 +31,19 @@
                 </div>
             </div>
         </div>
+        <msgItem :class=" msgWho(msg)" v-for="msg in msgs" :msg='msg'></msgItem>
     </div>
     <div class="box_ft" v-show="userChat">
         <div id="tool_bar" class="toolbar">
-            <a title="表情" href="javascript:;" class="chat_face"></a>
-            <a title="图片和文件" href="javascript:;" class="chat_file" id="chatFile">
-            <a title="发送名片" href="javascript:;" class="chat_card" id="chatCard">
-            </a>
+            <a title="表情" href="javascript:;" class="chat_face" @click="showFace"></a>
+            <a title="图片和文件" href="javascript:;" class="chat_file" id="chatFile"></a>
+            <a title="发送名片" href="javascript:;" class="chat_card" id="chatCard"></a>
+            
             <!--emoji表情窗口-->
             <div id="mmpop_emoji_panel" class="mmpop emojiFace">
                 <div class="expression">
-                    <div class="emoji_face scroll">
-
+                    <div class="emoji_face scroll" v-html="getFace()">
+                        
                     </div>
                 </div>
             </div>
@@ -61,7 +62,7 @@
             </div>
         </div>
         <div class="content">
-            <textarea class="editArea" id="Msg" v-model="newMsg"></textarea>
+            <textarea class="editArea" id="Msg" v-model="newMsg" @keyup.enter="sendMsg"></textarea>
         </div>
         <div class="action">
             <span class="desc">按下Ctrl+Enter换行,Enter发送</span>
@@ -77,21 +78,49 @@
     import {
         mapState
     } from 'vuex'
+    
+    import msgItem from './msgItem.vue'
     export default {
+        components: {
+            msgItem:msgItem
+        },
         filters: {
 
         },
         computed: mapState({
             userChat: state => state.isChat,
             MY: state => state.MY,
+            // msgs:state => state.chatNow
         }),
+        // updated:{
+        //     scrollDown(){
+        //         $("#chatBox .box_bd").scrollTop($(this).height())
+        //     }
+        // },
         methods: {
             sendMsg() {
-                let msg = this.newMsg;
-                if (msg == '') {
-                    return;
+                var t= new Date();
+                let msgId=this.userChat.userid+'-'+t.getTime();
+                let content = this.newMsg.replace(/[\r\n]/g, "");
+
+                console.log('send = '+content);
+                if (content == '') {
+                    this.newMsg='';
+                    return ;
                 }
-                console.log(msg);
+                let sendMsg={
+                    msgId:msgId,
+                    content:content,
+                    sendtime:'2016-12-31 23:59:59',
+                    operation:''
+                }
+                if(this.userChat.tId.split('-')[0]=='G'){
+                    sendMsg['operation']='sendgroup';
+                }else{
+                    sendMsg['operation']='sendmsg';
+                }
+                // console.log(content);
+                this.$store.dispatch('saveMsg', sendMsg);
                 this.newMsg = ''
             },
             msgWho(msg) {
@@ -127,13 +156,81 @@
                     return inner == '' ? code : inner;
                 });
                 return '<span>' + content + '</span';
+            },
+            getFace(){
+                var face='';
+                for(var i=0; i<emojiFace.length;i++){
+                    var code=emojiFace[i].code;
+                    var key=emojiFace[i].key;
+                    face+='<a title="'+code+'" type="emoji" class="faceIcon woxinFace_'+key+'">'+code+'</a>'
+                }
+                return face;
+            },
+            showFace(){
+                
             }
         },
         data() {
             return {
-                msgs: [],
-                newMsg: ''
+                newMsg: '',
+                emojiFace:emojiFace,
+                msgs:[
+                    {
+                        "senderid": "2484",
+                        "msgtype": "text",
+                        "content": "文字",
+                        "msgId": "2484_1483332118612",
+                        "operation": "sendmsg",
+                        "recevierid": "44338"
+                    },
+                    {
+                        "senderid": "2484",
+                        "msgId": "2484_1483332227504",
+                        "filepath": "http://uat-wolianw-im.oss-cn-hangzhou.aliyuncs.com/1_1/2_1/3_1/4_13/2484_201701021243484509.jpg",
+                        "msgtype": "image",
+                        "recevierid": "44338",
+                        "operation": "sendmsg"
+                    },
+                    {
+                        "senderid": "2484",
+                        "msgId": "2484_1483332335781",
+                        "filepath": "http://uat-wolianw-im.oss-cn-hangzhou.aliyuncs.com/1_1/2_1/3_1/4_13/2484_201701021245372162.txt",
+                        "msgtype": "file",
+                        "content": "uninstall.txt",
+                        "recevierid": "44338",
+                        "operation": "sendmsg"
+                    }
+                    ]
             }
+        },
+        mounted () {
+            let that=this;
+            $('.scroll').perfectScrollbar();
+            setTimeout(function() {
+                $('#chatBox .box_bd').get(0).scrollTop = $('#chatBox .box_bd').get(0).scrollHeight;
+            }, 10);
+            $(document).click(function(){
+                $("#mmpop_emoji_panel").hide();
+            })
+            $("#tool_bar .chat_face").click(function(e){
+                e.stopPropagation();
+                
+                $("#mmpop_emoji_panel").show();
+            })
+            $("#tool_bar ").on('click','.faceIcon',function(e){
+                e.stopPropagation();
+                that.newMsg+=$(this).attr('title')
+            })
+        },
+        watch: {
+            msgs:function(){
+                setTimeout(function() {
+                    $('#chatBox .box_bd').get(0).scrollTop = $('#chatBox .box_bd').get(0).scrollHeight;
+                }, 10);
+            }
+        },
+        updated(){
+             
         }
     }
     //排序版

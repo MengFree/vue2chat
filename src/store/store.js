@@ -2,24 +2,21 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import mutations from './mutations.js'
 Vue.use(Vuex)
-
+let msgs = localStorage.getItem('msg');
+if (!msgs) {
+    msgs = {}
+} else {
+    msgs = JSON.parse(msgs);
+}
 const state = {
         chatSession: [{
             name: '测试呵呵',
             photo: './assets/icon.jpg',
-            uerid: '123',
+            uerid: '2484',
             type: 'P',
-            tId: 'P-123',
+            tId: 'P-2484',
             isOn: false,
-            msg: {
-                "senderid": "48726",
-                "msgtype": "text",
-                "content": "holy shit！",
-                "msgId": "48726_1482975420008",
-                "operation": "sendmsg",
-                "recevierid": "1038667",
-                sendtime: "2016-12-30 22:06"
-            }
+            msg: {}
         }, {
             name: '测试2',
             photo: './assets/icon.jpg',
@@ -27,15 +24,7 @@ const state = {
             type: 'P',
             tId: 'P-32',
             isOn: false,
-            msg: {
-                "senderid": "48726",
-                "msgtype": "text",
-                "content": "holy shit！",
-                "msgId": "48726_1482975420008",
-                "operation": "sendmsg",
-                "recevierid": "1038667",
-                sendtime: "2016-12-30 22:06"
-            }
+            msg: {}
         }, {
             name: 'sger',
             photo: './assets/icon.jpg',
@@ -43,48 +32,11 @@ const state = {
             type: 'P',
             tId: 'P-33',
             isOn: false,
-            msg: {
-                "senderid": "48726",
-                "msgtype": "text",
-                "content": "holy shit！",
-                "msgId": "48726_1482975420008",
-                "operation": "sendmsg",
-                "recevierid": "1038667",
-                sendtime: "2016-12-30 22:06"
-            }
+            msg: {}
         }, ],
         isChat: false,
-        chatStore: {
-            'P-123': [{
-                "recevierid": 48726,
-                "senderid": 1087329,
-                "msgId": "1087329_1482404924223",
-                "sendtime": "2016-12-22 19:08:44",
-                "operation": "sendmsg",
-                "msgtype": "text",
-                "content": "[傻笑][害羞]",
-                "msgSeq": "888799"
-            }, {
-                "recevierid": 48726,
-                "senderid": 1087329,
-                "filepath": "http://uat-wolianw-im.oss-cn-hangzhou.aliyuncs.com/1_1/2_1/3_28/4_37/1087329_1482404511380_2155_imPicWH78x78.gif",
-                "msgId": "1087329_1482404511233",
-                "sendtime": "2016-12-22 19:01:52",
-                "operation": "sendmsg",
-                "msgtype": "image",
-                "content": "[图片]",
-                "msgSeq": "888796"
-            }, {
-                "recevierid": 48726,
-                "senderid": 1087329,
-                "msgId": "1087329_1482404493623",
-                "sendtime": "2016-12-22 19:01:33",
-                "operation": "sendmsg",
-                "msgtype": "text",
-                "content": "记得",
-                "msgSeq": "888795"
-            }]
-        },
+        chatStore: msgs,
+        chatNow: [],
         timeEntries: [],
         MY: {
             name: '二哲',
@@ -115,7 +67,11 @@ const actions = {
     },
     clickSession({ commit, state }, session) {
         commit('CHATITEM', session)
-    }
+    },
+    saveMsg({ commit, state }, msg) {
+        commit('SAVEMSG', msg)
+    },
+
 }
 export default new Vuex.Store({
     state,

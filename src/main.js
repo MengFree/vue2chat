@@ -16,7 +16,6 @@ import './assets/css/perfect-scrollbar.css'
 import './assets/js/perfect-scrollbar.jquery.min.js'
 import './assets/js/jquery.mousewheel.js'
 
-
 Vue.use(VueRouter)
 
 const routes = [

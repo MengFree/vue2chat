@@ -45,7 +45,7 @@
         },
         data() {
             return {
-                chatList: []
+                
             }
         },
         computed: mapState({

@@ -74,5 +74,8 @@
                 
             }
         },
+        mounted () {
+            $('.scroll').perfectScrollbar();
+        }
     }
 </script>

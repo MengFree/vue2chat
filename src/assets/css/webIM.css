@@ -1618,22 +1618,22 @@ a.btn {
     content: " "
 }
 
-.bubble.left:before,
-.bubble.left:after {
+.you .bubble:before,
+.you .bubble:after {
     right: 100%
 }
 
-.bubble.left:after {
+.you .bubble:after {
     border-right-color: #FFF;
     border-right-width: 4px
 }
 
-.bubble.right:before,
-.bubble.right:after {
+.me .bubble:before,
+.me .bubble:after {
     left: 100%
 }
 
-.bubble.right:after {
+.me .bubble:after {
     border-left-color: #FFF
 }
 
@@ -1645,32 +1645,33 @@ a.btn {
     background-color: #ffffff;
 }
 
-.bubble.bubble_primary.left:after {
+.you .bubble.bubble_primary:after {
     border-right-color: #b2e281;
     border-right-width: 4px
 }
 
-.bubble.bubble_primary.right:after {
+.me .bubble.bubble_primary:after {
     border-left-color: #b2e281;
     border-left-width: 4px
 }
 
-.you .bubble.bubble_primary.left:after {
+.you .bubble.bubble_primary:after {
     border-right-color: #ffffff;
     border-right-width: 4px
 }
 
-.you .bubble.bubble_primary.right:after {
+
+/*.you .bubble.bubble_primary.right:after {
     border-left-color: #ffffff;
     border-left-width: 4px
-}
+}*/
 
-.bubble.bubble_primary.right.arrow_primary:before {
+.me .bubble.bubble_primary.arrow_primary:before {
     border-left-color: #b2e281;
     border-left-width: 4px
 }
 
-.bubble.bubble_primary.right.arrow_primary:after {
+.me .bubble.bubble_primary.arrow_primary:after {
     border-left-color: #fff;
     border-left-width: 4px;
     margin-left: -2px
